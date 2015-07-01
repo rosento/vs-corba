@@ -1,0 +1,10 @@
+exception DivByZero {
+	long dividend;
+};
+
+interface Calc {
+	long add(in long x, in long y);
+	long subtr(in long x, in long y);
+	long mult(in long x, in long y);
+	long div(in long x, in long y) raises (DivByZero);
+};

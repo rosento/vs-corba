@@ -29,12 +29,14 @@ public class CalcImpl extends CalcPOA {
 		// intialize Object Request Broker
 		ORB orb = ORB.init(args, null);
 
-		// TODO
+		// resolve Portable Object Adapter
+		// policies for persistency
 		POA rootPOA = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
 		rootPOA.the_POAManager().activate();
 
 		org.omg.CORBA.Object ref = rootPOA.servant_to_reference(new CalcImpl());
 		Calc calcRef = CalcHelper.narrow(ref);
+
 		// get the root naming context
       		// NameService invokes the name service
 		org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");

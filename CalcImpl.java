@@ -47,6 +47,9 @@ public class CalcImpl extends CalcPOA {
 		NameComponent path[] = ncRef.to_name("Calc");
 		ncRef.rebind(path, calcRef);
 
+		// print out stringified reference
+		System.out.println(orb.object_to_string(calcRef));
+
 		// wait for invocations from clients
 		orb.run();
 	  } catch (Exception e) {

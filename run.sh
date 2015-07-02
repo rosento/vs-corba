@@ -1,4 +1,8 @@
-orbd &
-java CalcImpl -ORBInitialPort 1050 -ORBInitialHost localhost&
+#!/bin/sh
+ORBInitialPort=1050
+ORBInitialHost=localhost
 
-#TODO run client
+orbd -ORBInitialPort $ORBInitialPort -ORBInitialHost $ORBInitialHost localhost &
+java CalcImpl -ORBInitialPort $ORBInitialPort -ORBInitialHost ORBInitialHost localhost&
+
+echo "run client with: ./calc_client ${IOR}"
